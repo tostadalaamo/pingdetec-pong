@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": -9.6,
+      "left": 14.44,
+      "attrs": { "env": "micropython-20260406-v1.28.0" }
+    },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": -78.1, "left": 134.2, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": -57.5,
+      "left": -60.9,
+      "rotate": 270,
+      "attrs": { "color": "red", "xray": "1", "bounce": "0" }
+    },
+    { "type": "wokwi-potentiometer", "id": "pot2", "top": 56.3, "left": -125, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:GND.1", "pot2:GND", "black", [ "v9.6", "h-115.05" ] ],
+    [ "esp:GND.2", "pot1:GND", "black", [ "v0", "h48" ] ],
+    [ "esp:5V", "pot2:VCC", "red", [ "h0" ] ],
+    [ "esp:5V", "pot1:VCC", "red", [ "h0.15", "v19.2", "h163.2" ] ],
+    [ "esp:5V", "btn1:1.l", "red", [ "h0" ] ],
+    [ "pot2:SIG", "esp:35", "orange", [ "v19.2", "h95.6", "v-76.8" ] ],
+    [ "pot1:SIG", "esp:34", "orange", [ "v9.6", "h-67.6", "v-19.2", "h-96", "v76.8" ] ],
+    [ "btn1:1.r", "esp:12", "green", [ "v-9.6", "h31.6", "v211.2" ] ]
+  ],
+  "dependencies": {}
+}
