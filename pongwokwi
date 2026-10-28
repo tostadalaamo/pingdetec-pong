@@ -1,0 +1,20 @@
+from machine import ADC, Pin
+from time import sleep
+
+P1 = ADC(Pin(35))  
+P2 = ADC(Pin(34))
+boton = Pin(12)
+
+P1.width(ADC.WIDTH_12BIT) 
+P1.atten(ADC.ATTN_11DB) 
+P2.width(ADC.WIDTH_12BIT)  
+P2.atten(ADC.ATTN_11DB)
+
+while True:
+    value1 = P1.read()
+    value2 = P2.read()
+
+    print(f"Analog value read: {value1}")
+    sleep(1)
+    print(f"Analog value read: {value2}")
+    sleep(1)
