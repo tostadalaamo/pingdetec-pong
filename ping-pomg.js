@@ -12,13 +12,16 @@ var Score1 = 0
 var Score2 = 0
 var RequestFrame = false;
 var ballAnimation = 0
+let porInitialized = false;
+let serialBuffer = "";
 document.addEventListener('keydown', (e) => {
 
     if (e.key == "w") WKeyState = true
     if (e.key == "s") SKeyState = true
     if (e.key == "ArrowUp") OKeyState = true
     if (e.key == "ArrowDown") LKeyState = true
-    if (e.key == "Enter") {
+    if (e.key == "Enter") // controles del pad//
+    {
         if (!RequestFrame) {
             var ball = new Obj(DocWidth / 2, DocHeight / 2, 10)
             ball.drawBall()
@@ -113,24 +116,33 @@ canvasSetup()
 window.onresize = canvasSetup
 
 function canvasSetup() {
+    //eliminamos las posiciones iniciales para que se empieze desde nos dice el multimetro//
 
     DocHeight = window.innerHeight
     DocWidth = window.innerWidth
-    Pad2YPos = DocHeight / 2
-    Pad1YPos = DocHeight / 2
+
     canvas.height = DocHeight
     canvas.width = DocWidth
+    
     dirX = GenerateRandomDir()
     dirY = GenerateRandomDir()
+    
+    if(potInitialized) {
+        DrawPads(Pad1YPos, Pad2YPos);
+    }
+
     DrawPads(Pad1YPos, Pad2YPos)
+    
     var ball = new Obj(DocWidth / 2, DocHeight / 2, 10)
     ball.drawBall()
+
     ctx.fillRect(DocWidth / 2 - 5, 0, 10, DocHeight)
     ctx.fillStyle = "white"
     ctx.fill()
 }
 function DrawPads(Pad1YPos, Pad2YPos) {
 
+    if (!potInitialized) return;
 
     var Pad1 = new Obj(50, Pad1YPos, 25, 100)
     var Pad2 = new Obj(DocWidth - 50, Pad2YPos, 25, 100)
@@ -184,3 +196,5 @@ function GenerateRandomDir() {
 
     return Boolean(Math.floor(Math.random() * 2))
 }
+
+
