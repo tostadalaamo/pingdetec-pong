@@ -152,40 +152,31 @@ async function conectarESP32() {
             let lines = serialBuffer.split("\n");
             serialBuffer = lines.pop();
 
+            
             for (let line of lines) {
 
-                let valores = line.trim().split(",");
+                line = line.trim();
+
+                // Detectar el pulsador de reinicio
+                if (line === "RESET") {
+                    ReiniciarPartida();
+                    continue;
+                }
+
+                let valores = line.split(",");
 
                 if (valores.length !== 2) continue;
+                            }
+                        }
+                    }
 
-                let pot1 = Number(valores[0]);
-                let pot2 = Number(valores[1]);
+                    reader.releaseLock();
 
-                if (!Number.isFinite(pot1) || !Number.isFinite(pot2)) continue;
+                } catch (error) {
 
-                // pasa la posicion de los potenciometros a una posicion en el juego
-
-                Pad1YPos = 50 + (pot1 / 4095) * (DocHeight - 100);
-                Pad2YPos = 50 + (pot2 / 4095) * (DocHeight - 100);
-
-                potInitialized = true;
-
-                // reinicia el juego
-
-                if (!RequestFrame) {
-                    escenario();
+                    console.error(error);
+                    alert("Error al conectar la ESP32.");
                 }
-            }
-        }
-
-        reader.releaseLock();
-
-    } catch (error) {
-
-        console.error(error);
-        alert("Error al conectar la ESP32.");
-    }
-}
 
 function StartGame() {
 
@@ -265,4 +256,27 @@ function CheckWinner() {
 function direccionAzar() {
 
     return Boolean(Math.floor(Math.random() * 2));
+}
+
+function ReiniciarPartida() {
+
+    RequestFrame = false;
+
+    Score1 = 0;
+    Score2 = 0;
+
+    gameOver = false;
+
+    dirX = true;
+    dirY = true;
+
+    document.querySelector("#Player1").innerHTML = 0;
+    document.querySelector("#Player2").innerHTML = 0;
+
+    document.querySelector("#WinMsg").style.display = "none";
+
+    escenario();
+
+    var ball = new Obj(DocWidth / 2, DocHeight / 2, 10);
+    ball.drawBall();
 }
