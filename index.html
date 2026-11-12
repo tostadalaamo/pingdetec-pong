@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LED Asincrono</title>
     <link rel="stylesheet" href="style.css">
-    <script src="ping-pomg.js" defer></script>
+    
 
 </head>
 <body>
@@ -14,10 +14,16 @@
     <!-- Declaracion de los LEDs -->
     <h4>Conexion</h4>
     <label class="switch">
-        <input type="checkbox" onchange="toggleCheckbox(this)" id="XX">
+        <input type="checkbox" onchange="conectarESP32()" id="XX">
         <span class="slider"></span>
     </label>
         <h3>jugador: <span id="Player1">0</span></h3></h2>
         <h2>jugador: <span id="Player2">0</span></h3></h2>
+    <div id="WinMsg">
+        ¡Ganó el Jugador <span id="WinPlayerId"></span>!
+    </div>
+    <canvas id="juego"></canvas>
+    
+    <script src="ping-pomg.js"></script>
 </body>
 </html>
