@@ -19,7 +19,15 @@
       "rotate": 270,
       "attrs": { "color": "red", "xray": "1", "bounce": "0" }
     },
-    { "type": "wokwi-potentiometer", "id": "pot2", "top": 56.3, "left": -125, "attrs": {} }
+    { "type": "wokwi-potentiometer", "id": "pot2", "top": 56.3, "left": -125, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 52.8,
+      "left": -48.55,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    }
   ],
   "connections": [
     [ "esp:TX", "$serialMonitor:RX", "", [] ],
@@ -31,7 +39,9 @@
     [ "esp:5V", "btn1:1.l", "red", [ "h0" ] ],
     [ "pot2:SIG", "esp:35", "orange", [ "v19.2", "h95.6", "v-76.8" ] ],
     [ "pot1:SIG", "esp:34", "orange", [ "v9.6", "h-67.6", "v-19.2", "h-96", "v76.8" ] ],
-    [ "btn1:1.r", "esp:12", "green", [ "v-9.6", "h31.6", "v211.2" ] ]
+    [ "r1:1", "btn1:2.l", "black", [ "h0" ] ],
+    [ "esp:GND.1", "r1:2", "black", [ "h0" ] ],
+    [ "btn1:2.r", "esp:12", "green", [ "v-9.8", "h19.4", "v211.2" ] ]
   ],
   "dependencies": {}
 }
