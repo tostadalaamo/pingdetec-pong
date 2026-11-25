@@ -246,7 +246,8 @@ function CheckWinner() {
         RequestFrame = false;
         gameOver = true;
 
-        document.querySelector("#WinMsg").style.display = "block";
+        document.querySelector(".la_tablita").style.display = "none";
+        document.querySelector("#quiengano").style.display = "block";
         document.querySelector("#WinPlayerId").innerHTML = Score1 >= 10 ? 1 : 2;
     }
 }
@@ -271,7 +272,8 @@ function ReiniciarPartida() {
     document.querySelector("#Player1").innerHTML = 0;
     document.querySelector("#Player2").innerHTML = 0;
 
-    document.querySelector("#WinMsg").style.display = "none";
+    document.querySelector(".la_tablita").style.display = "grid";
+    document.querySelector("#quiengano").style.display = "none";
 
     escenario();
 
