@@ -73,7 +73,7 @@ h3 {
     font-size: 1.5rem;
     position: absolute;
     top: 80px;
-    left: 30%;
+    left: 33%;
     transform: translateX(-50%);
 }
 
@@ -81,7 +81,7 @@ h2 {
     font-size: 1.5rem;
     position: absolute;
     top: 80px;
-    right: 25%;
+    right: 24%;
     transform: translateX(-50%);
 }
 
@@ -91,10 +91,10 @@ canvas {
     height: 450px;
     border: 3px solid white;
     background-color: black;
-    position: absolute;
-    top: 150px;
-    align-items: center;
-    left: 160px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 body {
@@ -120,8 +120,8 @@ body {
         }
 
 h1 {
-   position: absolute; 
-   top: 10px;
-   left: 40%;
-
+   position: absolute;
+   top: 20px;
+   left: 50%;
+   transform: translateX(-50%);
 }
