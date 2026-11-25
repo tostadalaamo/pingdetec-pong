@@ -69,20 +69,19 @@ h4 {
     background-color: green;
 }
 
-h3 {
+.player-score {
     font-size: 1.5rem;
     position: absolute;
     top: 80px;
-    left: 33%;
     transform: translateX(-50%);
 }
 
-h2 {
-    font-size: 1.5rem;
-    position: absolute;
-    top: 80px;
-    right: 24%;
-    transform: translateX(-50%);
+.player-one {
+    left: 25%;
+}
+
+.player-two {
+    left: 75%;
 }
 
 canvas {
