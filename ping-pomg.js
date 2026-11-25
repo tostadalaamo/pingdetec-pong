@@ -18,18 +18,19 @@ var Score2 = 0;
 
 var RequestFrame = false;
 
-let potInitialized = false;
 let gameOver = false;
 
 let serialBuffer = "";
 
 function canvasSetup() {
-    //posicion inicial en la mitad del lateral eliminado//
     DocHeight = window.innerHeight;
     DocWidth = window.innerWidth;
 
     canvas.width = DocWidth;
     canvas.height = DocHeight;
+
+    Pad1YPos = DocHeight / 2;
+    Pad2YPos = DocHeight / 2;
 
     escenario();
 }
@@ -103,9 +104,6 @@ class Obj {
 }
 
 function DrawPads() {
-
-    if (!potInitialized) return;
-
     var Pad1 = new Obj(50, Pad1YPos, 25, 100);
     var Pad2 = new Obj(DocWidth - 75, Pad2YPos, 25, 100);
 
@@ -180,7 +178,7 @@ async function conectarESP32() {
 
 function StartGame() {
 
-    if (RequestFrame || gameOver || !potInitialized) return;
+    if (RequestFrame || gameOver) return;
 
     var ball = new Obj(DocWidth / 2, DocHeight / 2, 10);
 
