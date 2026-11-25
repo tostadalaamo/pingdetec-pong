@@ -166,17 +166,17 @@ async function conectarESP32() {
                 let valores = line.split(",");
 
                 if (valores.length !== 2) continue;
-                            }
-                        }
-                    }
+            }
+        }
+                    
+        reader.releaseLock();
 
-                    reader.releaseLock();
+    } catch (error) {
 
-                } catch (error) {
-
-                    console.error(error);
-                    alert("Error al conectar la ESP32.");
-                }
+        console.error(error);
+        alert("Error al conectar la ESP32.");
+    }
+}
 
 function StartGame() {
 
