@@ -69,19 +69,29 @@ h4 {
     background-color: green;
 }
 
-.player-score {
-    font-size: 1.5rem;
-    position: absolute;
-    top: 80px;
+.la_tablita {
+    position: fixed;
+    top: calc(50% + 265px);
+    left: 50%;
+    width: 880px;
     transform: translateX(-50%);
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+}
+#maldito_john_css
+
+.scoreboard h3 {
+    text-align: center;
 }
 
-.player-one {
-    left: 25%;
-}
-
-.player-two {
-    left: 75%;
+#quiengano {
+    display: none;
+    position: fixed;
+    top: calc(50% + 335px);
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 2rem;
 }
 
 canvas {
@@ -104,7 +114,7 @@ body {
     color: white; 
 }
 
-#WinMsg {
+#quiengano {
             display: none;
             position: absolute;
             top: 45%;
