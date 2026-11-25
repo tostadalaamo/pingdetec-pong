@@ -134,3 +134,10 @@ h1 {
    left: 50%;
    transform: translateX(-50%);
 }
+
+img {
+    bottom: 0%;
+	right: 0%;
+	position: absolute;
+    width: 10%;
+}
