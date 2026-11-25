@@ -6,7 +6,6 @@
     <title>LED Asincrono</title>
     <link rel="stylesheet" href="style.css">
     
-
 </head>
 <body>
     <h1>ESP Web Server</h1>
@@ -17,9 +16,11 @@
         <input type="checkbox" onchange="conectarESP32()">
         <span class="slider"></span>
     </label>
-        <h3>jugador 1: <span id="Player1">0</span></h3>
-        <h3>jugador 2: <span id="Player2">0</span></h3>
-    <div id="WinMsg">
+    <div class="la_tablita">
+        <h3>Jugador 1: <span id="Player1">0</span></h3>
+        <h3>Jugador 2: <span id="Player2">0</span></h3>
+    </div>
+    <div id="quiengano">
         ¡Ganó el Jugador <span id="WinPlayerId"></span>!
     </div>
     <canvas id="juego"></canvas>
